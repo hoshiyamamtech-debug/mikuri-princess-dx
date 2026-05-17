@@ -1,0 +1,11 @@
+{
+  "name": "みくりちゃんのプリンセスきらきらレッスンDX",
+  "short_name": "みくりプリンセス",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffe6f4",
+  "theme_color": "#ffe6f4",
+  "description": "みくりちゃん専用の2歳向けプリンセス学習ゲーム",
+  "lang": "ja",
+  "orientation": "portrait"
+}
