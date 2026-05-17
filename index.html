@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>みくりちゃんのプリンセスきらきらレッスンDX</title>
+  <title>みくりちゃんのプリンセスきらきらレッスンDX2</title>
   <meta name="theme-color" content="#ffe6f4">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="みくりプリンセス">
@@ -432,6 +432,80 @@
       line-height: 1.05;
     }
 
+
+    .dress-icon {
+      width: 86px;
+      height: 88px;
+      position: relative;
+      display: inline-block;
+      filter: drop-shadow(0 7px 0 rgba(87,44,100,0.10));
+    }
+
+    .dress-icon::before {
+      content: "";
+      position: absolute;
+      left: 29px;
+      top: 2px;
+      width: 28px;
+      height: 30px;
+      background: var(--dress-color, #ff7ac8);
+      border-radius: 14px 14px 8px 8px;
+      box-shadow: inset 0 -4px 0 rgba(87,44,100,0.16);
+    }
+
+    .dress-icon::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      bottom: 0;
+      width: 72px;
+      height: 58px;
+      background: var(--dress-color, #ff7ac8);
+      clip-path: polygon(50% 0%, 95% 100%, 5% 100%);
+      border-radius: 16px;
+      box-shadow: inset 0 -7px 0 rgba(87,44,100,0.16);
+    }
+
+    .dress-bow {
+      position: absolute;
+      left: 32px;
+      top: 29px;
+      width: 22px;
+      height: 12px;
+      background: #8a3d7a;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .dress-bow::before,
+    .dress-bow::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      width: 13px;
+      height: 18px;
+      background: rgba(255,255,255,0.55);
+      border-radius: 999px;
+    }
+
+    .dress-bow::before {
+      left: -10px;
+      transform: rotate(-25deg);
+    }
+
+    .dress-bow::after {
+      right: -10px;
+      transform: rotate(25deg);
+    }
+
+    .choice-btn .dress-icon {
+      transform: scale(0.95);
+    }
+
+    .target-display .dress-icon {
+      transform: scale(1.35);
+    }
+
     .choice-label {
       font-size: 20px;
       margin-top: 8px;
@@ -571,7 +645,7 @@
 
   <main class="app">
     <div class="top-bar">
-      <div class="title">👑 みくりちゃんの<br>プリンセスレッスンDX</div>
+      <div class="title">👑 みくりちゃんの<br>プリンセスレッスンDX2</div>
       <div class="pill-row">
         <button id="collectionBtn" class="small-btn" type="button">💎</button>
         <button id="parentBtn" class="small-btn" type="button">おとな</button>
@@ -680,10 +754,10 @@
 
     const lessonData = {
       color: [
-        { id: "red", label: "あか", prompt: "あかいドレスはどっち？", voice: "みくりちゃん、あかいドレスはどっち", emoji: "👗", color: "#ff4f77", hint: "あかいドレスをえらんでね" },
-        { id: "blue", label: "あお", prompt: "あおいドレスはどっち？", voice: "みくりちゃん、あおいドレスはどっち", emoji: "👗", color: "#4aa3ff", hint: "あおいドレスをえらんでね" },
-        { id: "yellow", label: "きいろ", prompt: "きいろいドレスはどっち？", voice: "みくりちゃん、きいろいドレスはどっち", emoji: "👗", color: "#ffcf3d", hint: "きいろいドレスをえらんでね" },
-        { id: "pink", label: "ぴんく", prompt: "ぴんくのドレスはどっち？", voice: "みくりちゃん、ぴんくのドレスはどっち", emoji: "👗", color: "#ff7ac8", hint: "ぴんくのドレスをえらんでね" }
+        { id: "red", label: "あか", prompt: "あかいドレスはどっち？", voice: "みくりちゃん、あかいドレスはどっち", emoji: "dress", color: "#ff4f77", hint: "あかいドレスをえらんでね" },
+        { id: "blue", label: "あお", prompt: "あおいドレスはどっち？", voice: "みくりちゃん、あおいドレスはどっち", emoji: "dress", color: "#4aa3ff", hint: "あおいドレスをえらんでね" },
+        { id: "yellow", label: "きいろ", prompt: "きいろいドレスはどっち？", voice: "みくりちゃん、きいろいドレスはどっち", emoji: "dress", color: "#ffcf3d", hint: "きいろいドレスをえらんでね" },
+        { id: "pink", label: "ぴんく", prompt: "ぴんくのドレスはどっち？", voice: "みくりちゃん、ぴんくのドレスはどっち", emoji: "dress", color: "#ff7ac8", hint: "ぴんくのドレスをえらんでね" }
       ],
       shape: [
         { id: "circle", label: "まる", prompt: "まるのほうせきはどっち？", voice: "みくりちゃん、まるのほうせきはどっち", emoji: "●", color: "#ff7ac8", hint: "まるをえらんでね" },
@@ -1034,15 +1108,30 @@
       }
     }
 
-    function applyItemStyle(element, item, isTarget) {
-      element.textContent = item.emoji;
-      element.style.color = item.color;
+    function createDressElement(item) {
+      const wrap = document.createElement("span");
+      const bow = document.createElement("span");
 
-      if (item.emoji === "👗") {
-        element.style.textShadow = "0 0 0 " + item.color + ", 0 5px 0 rgba(87,44,100,0.08)";
+      wrap.className = "dress-icon";
+      wrap.style.setProperty("--dress-color", item.color);
+
+      bow.className = "dress-bow";
+      wrap.appendChild(bow);
+
+      return wrap;
+    }
+
+    function applyItemStyle(element, item, isTarget) {
+      element.innerHTML = "";
+
+      if (item.emoji === "dress") {
+        element.appendChild(createDressElement(item));
       } else {
-        element.style.textShadow = "0 5px 0 rgba(87,44,100,0.08)";
+        element.textContent = item.emoji;
       }
+
+      element.style.color = item.color;
+      element.style.textShadow = "0 5px 0 rgba(87,44,100,0.08)";
 
       if (isTarget) {
         element.style.borderColor = item.color === "#ffffff" ? "#ffd761" : item.color;
@@ -1058,12 +1147,13 @@
       button.className = "choice-btn";
       button.setAttribute("aria-label", item.label);
 
-      emojiSpan.textContent = item.emoji;
-      emojiSpan.style.color = item.color;
-
-      if (item.emoji === "👗") {
-        emojiSpan.style.textShadow = "0 0 0 " + item.color;
+      if (item.emoji === "dress") {
+        emojiSpan.appendChild(createDressElement(item));
+      } else {
+        emojiSpan.textContent = item.emoji;
       }
+
+      emojiSpan.style.color = item.color;
 
       label.className = "choice-label";
       label.textContent = item.label;

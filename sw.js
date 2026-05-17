@@ -1,4 +1,4 @@
-const CACHE_NAME = "mikuri-princess-dx-v1";
+const CACHE_NAME = "mikuri-princess-dx2-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -30,11 +30,8 @@ self.addEventListener("activate", function(event) {
 
 self.addEventListener("fetch", function(event) {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request);
+    fetch(event.request).catch(function() {
+      return caches.match(event.request);
     })
   );
 });
