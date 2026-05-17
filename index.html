@@ -2,28 +2,30 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>みくりちゃんのプリンセスきらきらレッスンDX2</title>
-  <meta name="theme-color" content="#ffe6f4">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no viewport-fit=cover">
+  <title>みくりちゃんのプリンセスワールドDX3.1</title>
+  <meta name="theme-color" content="#ffe3f4">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="みくりプリンセス">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-180.png">
   <style>
     :root {
-      --pink1: #ffe6f4;
-      --pink2: #ffd2ec;
-      --lavender: #e7dcff;
-      --sky: #dff7ff;
-      --gold: #ffd761;
+      --pink0: #fff6fb;
+      --pink1: #ffe3f4;
+      --pink2: #ffc5e7;
+      --sky: #dff8ff;
+      --lav: #eadfff;
+      --gold: #ffd86b;
       --hot: #ff5fb7;
-      --purple: #8a5cff;
-      --blue: #4aa3ff;
-      --green: #35c979;
+      --purple: #8757ff;
+      --blue: #43a4ff;
+      --green: #30c978;
       --red: #ff6464;
-      --text: #483154;
+      --text: #4b3159;
       --card: rgba(255, 255, 255, 0.94);
-      --shadow: rgba(87, 44, 100, 0.18);
+      --shadow: rgba(82, 41, 99, 0.18);
     }
 
     * {
@@ -39,9 +41,10 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 12%, rgba(255,255,255,0.85), transparent 26%),
-        radial-gradient(circle at 80% 12%, rgba(255,255,255,0.72), transparent 22%),
-        linear-gradient(160deg, var(--pink1), var(--sky) 55%, var(--lavender));
+        radial-gradient(circle at 18% 12%, rgba(255,255,255,0.94), transparent 27%),
+        radial-gradient(circle at 86% 10%, rgba(255,255,255,0.80), transparent 22%),
+        radial-gradient(circle at 50% 82%, rgba(255,255,255,0.55), transparent 28%),
+        linear-gradient(160deg, var(--pink1), var(--sky) 54%, var(--lav));
       overflow-x: hidden;
       overscroll-behavior: none;
     }
@@ -53,14 +56,14 @@
     }
 
     button {
+      border: none;
       font-family: inherit;
       cursor: pointer;
-      border: none;
       touch-action: manipulation;
     }
 
     .app {
-      width: min(100vw, 540px);
+      width: min(100vw, 560px);
       min-height: 100vh;
       padding: 14px;
       padding-bottom: calc(14px + env(safe-area-inset-bottom));
@@ -71,36 +74,34 @@
       overflow: hidden;
     }
 
-    .sparkle-bg {
+    .bg {
       position: fixed;
       inset: 0;
+      overflow: hidden;
       pointer-events: none;
       z-index: 0;
-      overflow: hidden;
     }
 
-    .floating {
+    .float {
       position: absolute;
-      opacity: 0.62;
-      animation: floatUp 9s linear infinite;
+      opacity: 0.58;
+      animation: floatUp 10s linear infinite;
       filter: drop-shadow(0 4px 0 rgba(255,255,255,0.35));
     }
 
-    .floating.one { left: 8%; bottom: -60px; font-size: 35px; animation-delay: -1s; }
-    .floating.two { left: 75%; bottom: -80px; font-size: 42px; animation-delay: -4s; animation-duration: 11s; }
-    .floating.three { left: 44%; bottom: -70px; font-size: 30px; animation-delay: -7s; animation-duration: 10s; }
-    .floating.four { left: 18%; bottom: -100px; font-size: 40px; animation-delay: -5s; animation-duration: 13s; }
-    .floating.five { left: 88%; bottom: -110px; font-size: 30px; animation-delay: -9s; animation-duration: 12s; }
+    .f1 { left: 5%; bottom: -70px; font-size: 36px; animation-delay: -1s; }
+    .f2 { left: 80%; bottom: -80px; font-size: 42px; animation-delay: -4s; animation-duration: 12s; }
+    .f3 { left: 45%; bottom: -80px; font-size: 30px; animation-delay: -8s; animation-duration: 11s; }
+    .f4 { left: 20%; bottom: -120px; font-size: 40px; animation-delay: -6s; animation-duration: 14s; }
+    .f5 { left: 92%; bottom: -90px; font-size: 31px; animation-delay: -10s; animation-duration: 13s; }
+    .f6 { left: 62%; bottom: -120px; font-size: 34px; animation-delay: -2s; animation-duration: 15s; }
 
     @keyframes floatUp {
       from { transform: translateY(0) rotate(0deg); }
-      to { transform: translateY(-115vh) rotate(360deg); }
+      to { transform: translateY(-116vh) rotate(360deg); }
     }
 
-    .top-bar, .screen {
-      position: relative;
-      z-index: 1;
-    }
+    .top-bar, .screen { position: relative; z-index: 1; }
 
     .top-bar {
       display: flex;
@@ -110,12 +111,12 @@
     }
 
     .title {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 1000;
       line-height: 1.12;
-      color: #6b3a85;
+      color: #6d3a88;
       text-shadow: 0 2px 0 rgba(255,255,255,0.95);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
 
     .pill-row {
@@ -128,11 +129,11 @@
       min-height: 44px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: #ffffff;
-      color: #6b3a85;
-      font-weight: 900;
-      box-shadow: 0 4px 0 rgba(87,44,100,0.15);
+      background: white;
+      color: #6d3a88;
       font-size: 15px;
+      font-weight: 900;
+      box-shadow: 0 4px 0 rgba(82,41,99,0.14);
     }
 
     .screen {
@@ -142,51 +143,60 @@
       gap: 12px;
     }
 
-    .screen.active {
-      display: flex;
-    }
+    .screen.active { display: flex; }
 
     .card {
       background: var(--card);
+      border: 3px solid rgba(255,255,255,0.92);
       border-radius: 30px;
       padding: 18px;
       box-shadow: 0 10px 30px var(--shadow);
-      border: 3px solid rgba(255,255,255,0.9);
     }
 
     .hero {
       text-align: center;
-      padding: 24px 16px;
-      position: relative;
+      padding: 22px 16px;
       overflow: hidden;
+      position: relative;
     }
 
     .castle {
-      font-size: 78px;
+      font-size: 82px;
       line-height: 1;
-      margin: 4px 0 12px;
-      animation: castleBounce 1.4s ease-in-out infinite;
-      filter: drop-shadow(0 8px 0 rgba(87,44,100,0.10));
+      margin: 2px 0 10px;
+      animation: bounce 1.35s ease-in-out infinite;
+      filter: drop-shadow(0 8px 0 rgba(82,41,99,0.1));
     }
 
-    @keyframes castleBounce {
+    @keyframes bounce {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-7px) scale(1.03); }
     }
 
     .lead {
       font-size: 22px;
-      font-weight: 1000;
       line-height: 1.42;
+      font-weight: 1000;
       margin: 8px 0;
     }
 
     .note {
+      color: #6f6177;
       font-size: 15px;
-      line-height: 1.6;
-      margin: 8px 0 0;
-      color: #6b6072;
+      line-height: 1.58;
       font-weight: 800;
+      margin: 8px 0 0;
+    }
+
+    .version {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff2c8;
+      font-size: 13px;
+      font-weight: 1000;
+      color: #795f19;
     }
 
     .menu-grid {
@@ -197,76 +207,83 @@
 
     .mode-btn {
       width: 100%;
-      min-height: 86px;
-      border-radius: 26px;
+      min-height: 88px;
+      border-radius: 27px;
       padding: 16px;
       color: white;
-      font-size: 22px;
+      font-size: 21px;
+      line-height: 1.15;
       font-weight: 1000;
-      box-shadow: 0 8px 0 rgba(87,44,100,0.18);
+      box-shadow: 0 8px 0 rgba(82,41,99,0.18);
       text-align: left;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
     .mode-btn::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.26), transparent);
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.28), transparent);
       transform: translateX(-100%);
-      animation: shine 3s ease-in-out infinite;
+      animation: shine 3.2s ease-in-out infinite;
     }
 
     @keyframes shine {
       0%, 45% { transform: translateX(-100%); }
-      70%, 100% { transform: translateX(100%); }
+      72%, 100% { transform: translateX(100%); }
     }
 
-    .mode-btn span {
-      font-size: 44px;
-      flex: 0 0 auto;
-      z-index: 1;
-    }
-
-    .mode-btn div {
-      z-index: 1;
-    }
+    .mode-btn span, .mode-btn div { z-index: 1; }
+    .mode-btn span { font-size: 44px; flex: 0 0 auto; }
 
     .mode-color { background: linear-gradient(135deg, #ff7ac8, #ff4fa5); }
     .mode-shape { background: linear-gradient(135deg, #a978ff, #7047ff); }
     .mode-animal { background: linear-gradient(135deg, #47cbff, #2a7dff); }
+    .mode-count { background: linear-gradient(135deg, #35d487, #0ea55a); }
     .mode-mix { background: linear-gradient(135deg, #ffc04d, #ff7c3d); }
 
-    .parent-panel, .collection-panel {
+    .small-btn:active, .mode-btn:active, .big-btn:active, .choice-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 3px 0 rgba(82,41,99,0.14);
+    }
+
+    .panel {
       display: none;
       background: white;
       border-radius: 22px;
       padding: 14px;
-      box-shadow: 0 4px 0 rgba(87,44,100,0.12);
+      box-shadow: 0 4px 0 rgba(82,41,99,0.12);
       font-size: 14px;
       line-height: 1.55;
     }
 
-    .parent-panel.active, .collection-panel.active {
-      display: block;
-    }
+    .panel.active { display: block; }
 
-    .parent-panel label {
+    .panel label {
       display: flex;
-      gap: 8px;
       align-items: center;
+      gap: 8px;
       font-weight: 900;
       margin: 8px 0;
     }
 
-    .parent-panel input {
+    .panel input {
       width: 22px;
       height: 22px;
+    }
+
+    .room-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-weight: 1000;
+      font-size: 16px;
     }
 
     .treasure-grid {
@@ -277,7 +294,7 @@
     }
 
     .treasure {
-      min-height: 54px;
+      min-height: 55px;
       border-radius: 17px;
       background: #f2edf8;
       display: flex;
@@ -285,58 +302,90 @@
       justify-content: center;
       font-size: 30px;
       filter: grayscale(1);
-      opacity: 0.45;
+      opacity: 0.42;
     }
 
     .treasure.on {
-      background: #fff4c7;
+      background: linear-gradient(145deg, #fff9d8, #ffe08a);
       filter: none;
       opacity: 1;
-      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.08);
+      box-shadow: inset 0 -4px 0 rgba(82,41,99,0.08);
+      animation: treasurePop 0.35s ease;
+    }
+
+    @keyframes treasurePop {
+      0% { transform: scale(0.85); }
+      70% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .mini-castle-room {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .room-card {
+      min-height: 92px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #fff, #fff2fb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 34px;
+      box-shadow: inset 0 -5px 0 rgba(82,41,99,0.06);
+      font-weight: 1000;
+    }
+
+    .room-card small {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #6f6177;
     }
 
     .status-row {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 8px;
-      align-items: center;
     }
 
     .status-box {
-      background: white;
-      border-radius: 18px;
-      padding: 9px 8px;
-      text-align: center;
-      font-weight: 1000;
-      box-shadow: 0 4px 0 rgba(87,44,100,0.10);
       min-height: 46px;
+      border-radius: 18px;
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      padding: 8px;
       font-size: 15px;
+      font-weight: 1000;
+      box-shadow: 0 4px 0 rgba(82,41,99,0.10);
     }
 
     .jewel-path {
-      background: rgba(255,255,255,0.76);
-      border-radius: 999px;
+      height: 31px;
       padding: 5px;
-      height: 30px;
+      background: rgba(255,255,255,0.78);
+      border-radius: 999px;
       position: relative;
-      box-shadow: inset 0 3px 0 rgba(87,44,100,0.07);
       overflow: hidden;
+      box-shadow: inset 0 3px 0 rgba(82,41,99,0.07);
     }
 
     .jewel-line {
       position: absolute;
-      inset: 13px 8px auto 8px;
-      border-top: 3px dotted rgba(107,58,133,0.25);
+      inset: 14px 10px auto 10px;
+      border-top: 3px dotted rgba(109,58,136,0.24);
     }
 
     .progress {
       height: 100%;
       width: 0%;
       border-radius: 999px;
-      background: linear-gradient(90deg, #ff7ac8, #ffd761);
+      background: linear-gradient(90deg, #ff7ac8, #ffd86b);
       transition: width 0.35s ease;
       position: relative;
       z-index: 1;
@@ -348,51 +397,48 @@
       left: 0%;
       transform: translateX(-10px);
       z-index: 2;
-      font-size: 30px;
+      font-size: 31px;
       transition: left 0.35s ease;
     }
 
     .question-card {
+      min-height: 232px;
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      min-height: 232px;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
     .question-label {
+      margin-bottom: 10px;
       font-size: 21px;
       font-weight: 1000;
-      color: #6b3a85;
-      margin-bottom: 10px;
+      color: #6d3a88;
     }
 
     .target-display {
-      width: min(64vw, 292px);
-      height: min(48vw, 220px);
+      width: min(65vw, 300px);
+      height: min(48vw, 224px);
       min-width: 230px;
       min-height: 180px;
-      border-radius: 46px;
-      background: radial-gradient(circle at 35% 20%, #ffffff, #fff0c8);
+      border-radius: 47px;
+      background: radial-gradient(circle at 35% 20%, #fff, #fff0c8);
       border: 8px solid var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(74px, 24vw, 128px);
+      font-size: clamp(78px, 24vw, 132px);
       font-weight: 1000;
       line-height: 1;
-      box-shadow: inset 0 -8px 0 rgba(87,44,100,0.08), 0 8px 0 rgba(87,44,100,0.11);
-      color: #6b3a85;
-      transition: transform 0.18s ease;
+      color: #6d3a88;
+      box-shadow: inset 0 -8px 0 rgba(82,41,99,0.08), 0 8px 0 rgba(82,41,99,0.11);
     }
 
-    .target-display.pulse {
-      animation: targetPulse 0.48s ease;
-    }
+    .target-display.pulse { animation: targetPulse 0.48s ease; }
 
     @keyframes targetPulse {
       0% { transform: scale(1); }
@@ -401,11 +447,11 @@
     }
 
     .hint {
+      min-height: 32px;
       margin-top: 14px;
+      color: #795f19;
       font-size: 19px;
       font-weight: 1000;
-      color: #765c23;
-      min-height: 32px;
     }
 
     .choices {
@@ -417,104 +463,25 @@
     .choice-btn {
       min-height: 132px;
       border-radius: 28px;
-      background: #ffffff;
-      color: #6b3a85;
+      background: white;
+      color: #6d3a88;
       font-size: clamp(54px, 18vw, 86px);
       font-weight: 1000;
-      box-shadow: 0 8px 0 rgba(87,44,100,0.16);
-      border: 4px solid rgba(255,95,183,0.25);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 8px 0 rgba(82,41,99,0.16);
+      border: 4px solid rgba(255,95,183,0.24);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      position: relative;
       line-height: 1.05;
     }
 
-
-    .dress-icon {
-      width: 86px;
-      height: 88px;
-      position: relative;
-      display: inline-block;
-      filter: drop-shadow(0 7px 0 rgba(87,44,100,0.10));
-    }
-
-    .dress-icon::before {
-      content: "";
-      position: absolute;
-      left: 29px;
-      top: 2px;
-      width: 28px;
-      height: 30px;
-      background: var(--dress-color, #ff7ac8);
-      border-radius: 14px 14px 8px 8px;
-      box-shadow: inset 0 -4px 0 rgba(87,44,100,0.16);
-    }
-
-    .dress-icon::after {
-      content: "";
-      position: absolute;
-      left: 7px;
-      bottom: 0;
-      width: 72px;
-      height: 58px;
-      background: var(--dress-color, #ff7ac8);
-      clip-path: polygon(50% 0%, 95% 100%, 5% 100%);
-      border-radius: 16px;
-      box-shadow: inset 0 -7px 0 rgba(87,44,100,0.16);
-    }
-
-    .dress-bow {
-      position: absolute;
-      left: 32px;
-      top: 29px;
-      width: 22px;
-      height: 12px;
-      background: #8a3d7a;
-      border-radius: 999px;
-      z-index: 2;
-    }
-
-    .dress-bow::before,
-    .dress-bow::after {
-      content: "";
-      position: absolute;
-      top: -3px;
-      width: 13px;
-      height: 18px;
-      background: rgba(255,255,255,0.55);
-      border-radius: 999px;
-    }
-
-    .dress-bow::before {
-      left: -10px;
-      transform: rotate(-25deg);
-    }
-
-    .dress-bow::after {
-      right: -10px;
-      transform: rotate(25deg);
-    }
-
-    .choice-btn .dress-icon {
-      transform: scale(0.95);
-    }
-
-    .target-display .dress-icon {
-      transform: scale(1.35);
-    }
-
     .choice-label {
-      font-size: 20px;
       margin-top: 8px;
+      font-size: 20px;
       font-weight: 1000;
-    }
-
-    .choice-btn:active, .mode-btn:active, .small-btn:active, .big-btn:active {
-      transform: translateY(4px);
-      box-shadow: 0 3px 0 rgba(87,44,100,0.14);
     }
 
     .choice-btn.good {
@@ -550,16 +517,16 @@
       padding: 12px;
       font-size: 20px;
       font-weight: 1000;
-      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 0 rgba(87,44,100,0.10);
+      text-align: center;
+      box-shadow: 0 4px 0 rgba(82,41,99,0.10);
     }
 
-    .message.good-text { color: var(--green); }
-    .message.bad-text { color: var(--red); }
-    .message.bonus-text { color: var(--purple); }
+    .good-text { color: var(--green); }
+    .bad-text { color: var(--red); }
+    .bonus-text { color: var(--purple); }
 
     .big-btn {
       width: 100%;
@@ -569,27 +536,27 @@
       color: white;
       font-size: 22px;
       font-weight: 1000;
-      box-shadow: 0 8px 0 rgba(87,44,100,0.16);
+      box-shadow: 0 8px 0 rgba(82,41,99,0.16);
       padding: 12px 16px;
     }
 
-    .secondary {
-      background: linear-gradient(135deg, #a978ff, #7047ff);
-    }
+    .secondary { background: linear-gradient(135deg, #a978ff, #7047ff); }
+    .green { background: linear-gradient(135deg, #35d487, #0ea55a); }
 
     .result-face {
       font-size: 82px;
       text-align: center;
       margin: 8px 0;
-      animation: castleBounce 1.2s ease-in-out infinite;
+      animation: bounce 1.2s ease-in-out infinite;
     }
 
     .result-title {
       font-size: 28px;
       font-weight: 1000;
       text-align: center;
-      color: #6b3a85;
+      color: #6d3a88;
       margin: 4px 0 10px;
+      line-height: 1.2;
     }
 
     .result-score {
@@ -600,52 +567,155 @@
     }
 
     .stars {
+      min-height: 42px;
       font-size: 32px;
       text-align: center;
       letter-spacing: 3px;
-      min-height: 42px;
+    }
+
+    .dress-icon {
+      width: 86px;
+      height: 88px;
+      display: inline-block;
+      position: relative;
+      filter: drop-shadow(0 7px 0 rgba(82,41,99,0.10));
+    }
+
+    .dress-icon::before {
+      content: "";
+      position: absolute;
+      left: 29px;
+      top: 2px;
+      width: 28px;
+      height: 30px;
+      background: var(--dress-color, #ff7ac8);
+      border-radius: 14px 14px 8px 8px;
+      box-shadow: inset 0 -4px 0 rgba(82,41,99,0.16);
+    }
+
+    .dress-icon::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      bottom: 0;
+      width: 72px;
+      height: 58px;
+      background: var(--dress-color, #ff7ac8);
+      clip-path: polygon(50% 0%, 95% 100%, 5% 100%);
+      border-radius: 16px;
+      box-shadow: inset 0 -7px 0 rgba(82,41,99,0.16);
+    }
+
+    .dress-bow {
+      position: absolute;
+      left: 32px;
+      top: 29px;
+      width: 22px;
+      height: 12px;
+      background: rgba(93,35,94,0.65);
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .dress-bow::before,
+    .dress-bow::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      width: 13px;
+      height: 18px;
+      background: rgba(255,255,255,0.55);
+      border-radius: 999px;
+    }
+
+    .dress-bow::before {
+      left: -10px;
+      transform: rotate(-25deg);
+    }
+
+    .dress-bow::after {
+      right: -10px;
+      transform: rotate(25deg);
+    }
+
+    .choice-btn .dress-icon { transform: scale(0.95); }
+    .target-display .dress-icon { transform: scale(1.35); }
+
+    .number-stack {
+      display: flex;
+      flex-wrap: wrap;
+      width: 150px;
+      justify-content: center;
+      gap: 4px;
+      line-height: 1;
+    }
+
+    .number-stack .tiny {
+      font-size: 42px;
+      filter: drop-shadow(0 4px 0 rgba(82,41,99,0.08));
+    }
+
+    .target-display .number-stack .tiny {
+      font-size: 54px;
     }
 
     .confetti {
       position: fixed;
+      top: -20px;
+      z-index: 9;
       width: 12px;
       height: 16px;
       border-radius: 4px;
-      top: -20px;
-      z-index: 9;
       pointer-events: none;
       animation: fall 1.25s ease-in forwards;
     }
 
     @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0.86;
-      }
+      to { transform: translateY(110vh) rotate(720deg); opacity: 0.86; }
     }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(22px + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(120px);
+      z-index: 20;
+      max-width: calc(100vw - 30px);
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: #6d3a88;
+      font-weight: 1000;
+      box-shadow: 0 8px 20px var(--shadow);
+      transition: transform 0.25s ease;
+      text-align: center;
+    }
+
+    .toast.show { transform: translateX(-50%) translateY(0); }
 
     @media (max-width: 360px) {
       .app { padding: 10px; }
-      .title { font-size: 18px; }
+      .title { font-size: 17px; }
       .lead { font-size: 20px; }
       .choice-btn { min-height: 116px; }
       .target-display { min-width: 210px; min-height: 164px; }
-      .mode-btn { min-height: 78px; font-size: 20px; }
+      .mode-btn { min-height: 78px; font-size: 19px; }
     }
   </style>
 </head>
 <body>
-  <div class="sparkle-bg">
-    <div class="floating one">✨</div>
-    <div class="floating two">💎</div>
-    <div class="floating three">🌸</div>
-    <div class="floating four">⭐</div>
-    <div class="floating five">💖</div>
+  <div class="bg">
+    <div class="float f1">✨</div>
+    <div class="float f2">💎</div>
+    <div class="float f3">🌸</div>
+    <div class="float f4">⭐</div>
+    <div class="float f5">💖</div>
+    <div class="float f6">🦄</div>
   </div>
 
   <main class="app">
     <div class="top-bar">
-      <div class="title">👑 みくりちゃんの<br>プリンセスレッスンDX2</div>
+      <div class="title">👑 みくりちゃんの<br>プリンセスワールドDX3.1</div>
       <div class="pill-row">
         <button id="collectionBtn" class="small-btn" type="button">💎</button>
         <button id="parentBtn" class="small-btn" type="button">おとな</button>
@@ -655,53 +725,50 @@
     <section id="menuScreen" class="screen active">
       <div class="card hero">
         <div class="castle">🏰👸</div>
-        <p class="lead">みくりちゃん、<br>プリンセスといっしょに<br>きらきらをあつめよう！</p>
-        <p class="note">2歳向け。色・かたち・どうぶつを、音とタッチで楽しく練習します。</p>
+        <p class="lead">プリンセスのおしろで<br>きらきらレッスンしよう！</p>
+        <p class="note">2歳向け。色・かたち・どうぶつ・かずを、音とタッチで楽しく練習します。</p>
+        <span class="version">DX3.1：名前の呼びかけ控えめ版</span>
       </div>
 
-      <div id="collectionPanel" class="collection-panel">
-        <strong>みくりちゃんの たからもの</strong>
+      <div id="collectionPanel" class="panel">
+        <div class="room-title">
+          <span>たからもののおへや</span>
+          <span id="castleLevel">おしろLv.1</span>
+        </div>
         <div id="treasureGrid" class="treasure-grid"></div>
-        <p class="note">遊ぶたびに、宝石やティアラが増えます。</p>
+        <div class="mini-castle-room">
+          <div class="room-card"><span id="roomCastle">🏰</span><small>おしろ</small></div>
+          <div class="room-card"><span id="roomDress">👗</span><small>ドレス</small></div>
+          <div class="room-card"><span id="roomFriend">🐰</span><small>おともだち</small></div>
+          <div class="room-card"><span id="roomMagic">✨</span><small>まほう</small></div>
+        </div>
       </div>
 
-      <div id="parentPanel" class="parent-panel">
+      <div id="parentPanel" class="panel">
         <strong>おとな向け設定</strong>
-        <label>
-          <input id="soundToggle" type="checkbox" checked>
-          音声・効果音を使う
-        </label>
-        <label>
-          <input id="musicToggle" type="checkbox" checked>
-          たのしいメロディを使う
-        </label>
-        <label>
-          <input id="hintToggle" type="checkbox" checked>
-          こたえのヒントを出す
-        </label>
-        <label>
-          <input id="autoNextToggle" type="checkbox" checked>
-          正解後に自動で次へ進む
-        </label>
-        <p>音は最初のタップ後に鳴ります。iPhoneのマナーモード中は小さい場合があります。</p>
+        <label><input id="soundToggle" type="checkbox" checked> 音声・効果音を使う</label>
+        <label><input id="musicToggle" type="checkbox" checked> たのしいメロディを使う</label>
+        <label><input id="hintToggle" type="checkbox" checked> こたえのヒントを出す</label>
+        <label><input id="autoNextToggle" type="checkbox" checked> 正解後に自動で次へ進む</label>
+        <button id="resetBtn" class="small-btn" type="button">たからものをリセット</button>
+        <p>音は最初のタップ後に鳴ります。iPhoneのマナーモード中は音が小さい場合があります。</p>
       </div>
 
       <div class="menu-grid">
         <button class="mode-btn mode-color" type="button" data-mode="color">
-          <div>いろのドレス<br>あか・あお・きいろ</div>
-          <span>👗</span>
+          <div>いろのドレス<br>あか・あお・きいろ・ぴんく</div><span>👗</span>
         </button>
         <button class="mode-btn mode-shape" type="button" data-mode="shape">
-          <div>かたちのほうせき<br>まる・さんかく・しかく</div>
-          <span>💎</span>
+          <div>かたちのほうせき<br>まる・さんかく・しかく・ほし</div><span>💎</span>
         </button>
         <button class="mode-btn mode-animal" type="button" data-mode="animal">
-          <div>どうぶつのおともだち<br>ねこ・いぬ・うさぎ</div>
-          <span>🐰</span>
+          <div>どうぶつのおともだち<br>ねこ・いぬ・うさぎ・くま</div><span>🐰</span>
+        </button>
+        <button class="mode-btn mode-count" type="button" data-mode="count">
+          <div>かずのパーティー<br>1・2・3をタッチ</div><span>🔢</span>
         </button>
         <button class="mode-btn mode-mix" type="button" data-mode="mix">
-          <div>みくりちゃんパーティー<br>いろいろあそぶ</div>
-          <span>🎉</span>
+          <div>みくりちゃんパーティー<br>ぜんぶまぜてあそぶ</div><span>🎉</span>
         </button>
       </div>
     </section>
@@ -726,7 +793,6 @@
       </div>
 
       <div id="choices" class="choices"></div>
-
       <div id="message" class="message">みくりちゃん、タッチしてね</div>
 
       <button id="nextBtn" class="big-btn secondary" type="button" style="display:none;">つぎへ</button>
@@ -746,40 +812,43 @@
     </section>
   </main>
 
+  <div id="toast" class="toast">更新しました</div>
+
   <script>
     "use strict";
 
+    const APP_VERSION = "dx31-20260517";
     const childName = "みくりちゃん";
     const totalQuestionsDefault = 5;
 
     const lessonData = {
       color: [
-        { id: "red", label: "あか", prompt: "あかいドレスはどっち？", voice: "みくりちゃん、あかいドレスはどっち", emoji: "dress", color: "#ff4f77", hint: "あかいドレスをえらんでね" },
-        { id: "blue", label: "あお", prompt: "あおいドレスはどっち？", voice: "みくりちゃん、あおいドレスはどっち", emoji: "dress", color: "#4aa3ff", hint: "あおいドレスをえらんでね" },
-        { id: "yellow", label: "きいろ", prompt: "きいろいドレスはどっち？", voice: "みくりちゃん、きいろいドレスはどっち", emoji: "dress", color: "#ffcf3d", hint: "きいろいドレスをえらんでね" },
-        { id: "pink", label: "ぴんく", prompt: "ぴんくのドレスはどっち？", voice: "みくりちゃん、ぴんくのドレスはどっち", emoji: "dress", color: "#ff7ac8", hint: "ぴんくのドレスをえらんでね" }
+        { id: "red", type: "dress", label: "あか", prompt: "あかいドレスはどっち？", voice: "あかいドレスはどっち", color: "#ff4f77", hint: "あかいドレスをえらんでね" },
+        { id: "blue", type: "dress", label: "あお", prompt: "あおいドレスはどっち？", voice: "あおいドレスはどっち", color: "#43a4ff", hint: "あおいドレスをえらんでね" },
+        { id: "yellow", type: "dress", label: "きいろ", prompt: "きいろいドレスはどっち？", voice: "きいろいドレスはどっち", color: "#ffcf3d", hint: "きいろいドレスをえらんでね" },
+        { id: "pink", type: "dress", label: "ぴんく", prompt: "ぴんくのドレスはどっち？", voice: "ぴんくのドレスはどっち", color: "#ff7ac8", hint: "ぴんくのドレスをえらんでね" }
       ],
       shape: [
-        { id: "circle", label: "まる", prompt: "まるのほうせきはどっち？", voice: "みくりちゃん、まるのほうせきはどっち", emoji: "●", color: "#ff7ac8", hint: "まるをえらんでね" },
-        { id: "triangle", label: "さんかく", prompt: "さんかくのほうせきはどっち？", voice: "みくりちゃん、さんかくのほうせきはどっち", emoji: "▲", color: "#8a5cff", hint: "さんかくをえらんでね" },
-        { id: "square", label: "しかく", prompt: "しかくのほうせきはどっち？", voice: "みくりちゃん、しかくのほうせきはどっち", emoji: "■", color: "#4aa3ff", hint: "しかくをえらんでね" },
-        { id: "star", label: "ほし", prompt: "ほしのほうせきはどっち？", voice: "みくりちゃん、ほしのほうせきはどっち", emoji: "★", color: "#ffd761", hint: "ほしをえらんでね" }
+        { id: "circle", type: "emoji", label: "まる", prompt: "まるのほうせきはどっち？", voice: "まるのほうせきはどっち", emoji: "●", color: "#ff7ac8", hint: "まるをえらんでね" },
+        { id: "triangle", type: "emoji", label: "さんかく", prompt: "さんかくのほうせきはどっち？", voice: "さんかくのほうせきはどっち", emoji: "▲", color: "#8757ff", hint: "さんかくをえらんでね" },
+        { id: "square", type: "emoji", label: "しかく", prompt: "しかくのほうせきはどっち？", voice: "しかくのほうせきはどっち", emoji: "■", color: "#43a4ff", hint: "しかくをえらんでね" },
+        { id: "star", type: "emoji", label: "ほし", prompt: "ほしのほうせきはどっち？", voice: "ほしのほうせきはどっち", emoji: "★", color: "#ffd86b", hint: "ほしをえらんでね" }
       ],
       animal: [
-        { id: "cat", label: "ねこ", prompt: "ねこさんはどっち？", voice: "みくりちゃん、ねこさんはどっち", emoji: "🐱", color: "#ffffff", hint: "ねこさんをえらんでね" },
-        { id: "dog", label: "いぬ", prompt: "いぬさんはどっち？", voice: "みくりちゃん、いぬさんはどっち", emoji: "🐶", color: "#ffffff", hint: "いぬさんをえらんでね" },
-        { id: "rabbit", label: "うさぎ", prompt: "うさぎさんはどっち？", voice: "みくりちゃん、うさぎさんはどっち", emoji: "🐰", color: "#ffffff", hint: "うさぎさんをえらんでね" },
-        { id: "bear", label: "くま", prompt: "くまさんはどっち？", voice: "みくりちゃん、くまさんはどっち", emoji: "🐻", color: "#ffffff", hint: "くまさんをえらんでね" }
+        { id: "cat", type: "emoji", label: "ねこ", prompt: "ねこさんはどっち？", voice: "ねこさんはどっち", emoji: "🐱", color: "#ffffff", hint: "ねこさんをえらんでね" },
+        { id: "dog", type: "emoji", label: "いぬ", prompt: "いぬさんはどっち？", voice: "いぬさんはどっち", emoji: "🐶", color: "#ffffff", hint: "いぬさんをえらんでね" },
+        { id: "rabbit", type: "emoji", label: "うさぎ", prompt: "うさぎさんはどっち？", voice: "うさぎさんはどっち", emoji: "🐰", color: "#ffffff", hint: "うさぎさんをえらんでね" },
+        { id: "bear", type: "emoji", label: "くま", prompt: "くまさんはどっち？", voice: "くまさんはどっち", emoji: "🐻", color: "#ffffff", hint: "くまさんをえらんでね" }
+      ],
+      count: [
+        { id: "one", type: "count", label: "1", prompt: "いっこはどっち？", voice: "いっこはどっち", count: 1, icon: "⭐", color: "#ffd86b", hint: "1こをえらんでね" },
+        { id: "two", type: "count", label: "2", prompt: "ふたつはどっち？", voice: "ふたつはどっち", count: 2, icon: "💖", color: "#ff7ac8", hint: "2こをえらんでね" },
+        { id: "three", type: "count", label: "3", prompt: "みっつはどっち？", voice: "みっつはどっち", count: 3, icon: "💎", color: "#43a4ff", hint: "3こをえらんでね" }
       ]
     };
 
-    const treasureList = ["💎", "👑", "🌸", "🪄", "⭐", "💖", "🦄", "🎀", "🏰", "🌈"];
-    const goodMessages = [
-      "みくりちゃん、せいかい！",
-      "やったね！きらきらゲット！",
-      "すごい！よくできたね！",
-      "プリンセスにぴったり！"
-    ];
+    const treasureList = ["💎", "👑", "🌸", "🪄", "⭐", "💖", "🦄", "🎀", "🏰", "🌈", "🧸", "🎵", "🍰", "🌙", "🪽"];
+    const goodMessages = ["みくりちゃん、せいかい！", "やったね！きらきらゲット！", "すごい！よくできたね！", "プリンセスにぴったり！"];
 
     let currentMode = "color";
     let activePool = [];
@@ -795,91 +864,81 @@
     let musicTimer = null;
     let musicStep = 0;
 
-    const menuScreen = document.getElementById("menuScreen");
-    const gameScreen = document.getElementById("gameScreen");
-    const resultScreen = document.getElementById("resultScreen");
-    const parentBtn = document.getElementById("parentBtn");
-    const collectionBtn = document.getElementById("collectionBtn");
-    const parentPanel = document.getElementById("parentPanel");
-    const collectionPanel = document.getElementById("collectionPanel");
-    const treasureGrid = document.getElementById("treasureGrid");
-    const soundToggle = document.getElementById("soundToggle");
-    const musicToggle = document.getElementById("musicToggle");
-    const hintToggle = document.getElementById("hintToggle");
-    const autoNextToggle = document.getElementById("autoNextToggle");
-    const questionCount = document.getElementById("questionCount");
-    const scoreBox = document.getElementById("scoreBox");
-    const streakBox = document.getElementById("streakBox");
-    const progressBar = document.getElementById("progressBar");
-    const miniPrincess = document.getElementById("miniPrincess");
-    const questionLabel = document.getElementById("questionLabel");
-    const targetDisplay = document.getElementById("targetDisplay");
-    const hintText = document.getElementById("hintText");
-    const choices = document.getElementById("choices");
-    const message = document.getElementById("message");
-    const nextBtn = document.getElementById("nextBtn");
-    const backMenuBtn = document.getElementById("backMenuBtn");
-    const retryBtn = document.getElementById("retryBtn");
-    const homeBtn = document.getElementById("homeBtn");
-    const resultFace = document.getElementById("resultFace");
-    const resultTitle = document.getElementById("resultTitle");
-    const resultScore = document.getElementById("resultScore");
-    const resultStars = document.getElementById("resultStars");
-    const resultMessage = document.getElementById("resultMessage");
+    const el = id => document.getElementById(id);
+    const menuScreen = el("menuScreen");
+    const gameScreen = el("gameScreen");
+    const resultScreen = el("resultScreen");
+    const parentBtn = el("parentBtn");
+    const collectionBtn = el("collectionBtn");
+    const parentPanel = el("parentPanel");
+    const collectionPanel = el("collectionPanel");
+    const treasureGrid = el("treasureGrid");
+    const castleLevel = el("castleLevel");
+    const soundToggle = el("soundToggle");
+    const musicToggle = el("musicToggle");
+    const hintToggle = el("hintToggle");
+    const autoNextToggle = el("autoNextToggle");
+    const resetBtn = el("resetBtn");
+    const questionCount = el("questionCount");
+    const scoreBox = el("scoreBox");
+    const streakBox = el("streakBox");
+    const progressBar = el("progressBar");
+    const miniPrincess = el("miniPrincess");
+    const questionLabel = el("questionLabel");
+    const targetDisplay = el("targetDisplay");
+    const hintText = el("hintText");
+    const choices = el("choices");
+    const message = el("message");
+    const nextBtn = el("nextBtn");
+    const backMenuBtn = el("backMenuBtn");
+    const retryBtn = el("retryBtn");
+    const homeBtn = el("homeBtn");
+    const resultFace = el("resultFace");
+    const resultTitle = el("resultTitle");
+    const resultScore = el("resultScore");
+    const resultStars = el("resultStars");
+    const resultMessage = el("resultMessage");
+    const toast = el("toast");
+    const roomCastle = el("roomCastle");
+    const roomDress = el("roomDress");
+    const roomFriend = el("roomFriend");
+    const roomMagic = el("roomMagic");
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add("show");
+      window.setTimeout(function() { toast.classList.remove("show"); }, 1800);
+    }
 
     function showScreen(screenName) {
       menuScreen.classList.remove("active");
       gameScreen.classList.remove("active");
       resultScreen.classList.remove("active");
-
-      if (screenName === "menu") {
-        menuScreen.classList.add("active");
-      }
-
-      if (screenName === "game") {
-        gameScreen.classList.add("active");
-      }
-
-      if (screenName === "result") {
-        resultScreen.classList.add("active");
-      }
+      if (screenName === "menu") { menuScreen.classList.add("active"); }
+      if (screenName === "game") { gameScreen.classList.add("active"); }
+      if (screenName === "result") { resultScreen.classList.add("active"); }
     }
 
     function ensureAudio() {
       if (!audioContext) {
         const AudioCtor = window.AudioContext || window.webkitAudioContext;
-
-        if (AudioCtor) {
-          audioContext = new AudioCtor();
-        }
+        if (AudioCtor) { audioContext = new AudioCtor(); }
       }
-
-      if (audioContext && audioContext.state === "suspended") {
-        audioContext.resume();
-      }
+      if (audioContext && audioContext.state === "suspended") { audioContext.resume(); }
     }
 
     function playTone(frequency, duration, type, volume) {
-      if (!soundToggle.checked) {
-        return;
-      }
-
+      if (!soundToggle.checked) { return; }
       ensureAudio();
-
-      if (!audioContext) {
-        return;
-      }
-
+      if (!audioContext) { return; }
       const now = audioContext.currentTime;
       const oscillator = audioContext.createOscillator();
       const gain = audioContext.createGain();
-
       oscillator.type = type;
       oscillator.frequency.setValueAtTime(frequency, now);
       gain.gain.setValueAtTime(0.0001, now);
       gain.gain.exponentialRampToValueAtTime(volume, now + 0.02);
       gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-
       oscillator.connect(gain);
       gain.connect(audioContext.destination);
       oscillator.start(now);
@@ -887,9 +946,9 @@
     }
 
     function playCorrectSound() {
-      playTone(659.25, 0.11, "sine", 0.08);
-      window.setTimeout(function() { playTone(783.99, 0.12, "sine", 0.08); }, 90);
-      window.setTimeout(function() { playTone(1046.50, 0.18, "sine", 0.08); }, 180);
+      playTone(659.25, 0.10, "sine", 0.08);
+      window.setTimeout(function() { playTone(783.99, 0.12, "sine", 0.08); }, 88);
+      window.setTimeout(function() { playTone(1046.50, 0.18, "sine", 0.08); }, 176);
     }
 
     function playWrongSound() {
@@ -905,27 +964,17 @@
 
     function startMusic() {
       stopMusic();
-
-      if (!musicToggle.checked || !soundToggle.checked) {
-        return;
-      }
-
+      if (!musicToggle.checked || !soundToggle.checked) { return; }
       ensureAudio();
-
-      if (!audioContext) {
-        return;
-      }
-
+      if (!audioContext) { return; }
       const melody = [523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 523.25, 659.25, 698.46, 783.99, 987.77, 783.99];
-
       musicTimer = window.setInterval(function() {
         if (!musicToggle.checked || !soundToggle.checked) {
           stopMusic();
           return;
         }
-
         const freq = melody[musicStep % melody.length];
-        playTone(freq, 0.11, "sine", 0.024);
+        playTone(freq, 0.105, "sine", 0.022);
         musicStep += 1;
       }, 360);
     }
@@ -938,14 +987,8 @@
     }
 
     function speak(text) {
-      if (!soundToggle.checked) {
-        return;
-      }
-
-      if (!("speechSynthesis" in window)) {
-        return;
-      }
-
+      if (!soundToggle.checked) { return; }
+      if (!("speechSynthesis" in window)) { return; }
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = "ja-JP";
@@ -957,114 +1000,83 @@
 
     function shuffleArray(array) {
       const result = array.slice();
-
       for (let i = result.length - 1; i > 0; i -= 1) {
         const j = Math.floor(Math.random() * (i + 1));
         const temp = result[i];
         result[i] = result[j];
         result[j] = temp;
       }
-
       return result;
     }
 
     function getTreasureCount() {
-      const saved = window.localStorage.getItem("mikuriPrincessTreasureDX");
+      const saved = window.localStorage.getItem("mikuriPrincessTreasureDX3");
       const value = Number(saved);
-
-      if (Number.isFinite(value)) {
-        return Math.max(0, Math.min(treasureList.length, value));
-      }
-
+      if (Number.isFinite(value)) { return Math.max(0, Math.min(treasureList.length, value)); }
       return 0;
     }
 
     function saveTreasureCount(count) {
       const safeCount = Math.max(0, Math.min(treasureList.length, count));
-      window.localStorage.setItem("mikuriPrincessTreasureDX", String(safeCount));
+      window.localStorage.setItem("mikuriPrincessTreasureDX3", String(safeCount));
     }
 
     function renderTreasures() {
       const count = getTreasureCount();
       treasureGrid.innerHTML = "";
-
       treasureList.forEach(function(treasure, index) {
         const div = document.createElement("div");
         div.className = "treasure";
-
-        if (index < count) {
-          div.classList.add("on");
-        }
-
+        if (index < count) { div.classList.add("on"); }
         div.textContent = treasure;
         treasureGrid.appendChild(div);
       });
+
+      const level = Math.max(1, Math.ceil(count / 3));
+      castleLevel.textContent = "おしろLv." + String(level);
+      roomCastle.textContent = count >= 8 ? "🏰✨" : "🏰";
+      roomDress.textContent = count >= 4 ? "👗👑" : "👗";
+      roomFriend.textContent = count >= 7 ? "🦄" : "🐰";
+      roomMagic.textContent = count >= 10 ? "🌈" : "✨";
     }
 
     function unlockTreasureIfNeeded() {
       const currentCount = getTreasureCount();
       let targetCount = currentCount;
 
-      if (score >= 1) {
-        targetCount = Math.max(targetCount, 1);
-      }
-
-      if (score >= 3) {
-        targetCount = Math.max(targetCount, 2);
-      }
-
-      if (score === totalQuestions) {
-        targetCount = Math.max(targetCount, 4);
-      }
-
-      if (maxStreak >= 3) {
-        targetCount = Math.max(targetCount, 5);
-      }
-
-      if (currentMode === "mix" && score >= 4) {
-        targetCount = Math.max(targetCount, 7);
-      }
-
-      if (currentMode === "mix" && score === totalQuestions) {
-        targetCount = treasureList.length;
-      }
+      if (score >= 1) { targetCount = Math.max(targetCount, 1); }
+      if (score >= 3) { targetCount = Math.max(targetCount, 2); }
+      if (score === totalQuestions) { targetCount = Math.max(targetCount, 4); }
+      if (maxStreak >= 3) { targetCount = Math.max(targetCount, 6); }
+      if (currentMode === "count" && score >= 4) { targetCount = Math.max(targetCount, 8); }
+      if (currentMode === "mix" && score >= 4) { targetCount = Math.max(targetCount, 11); }
+      if (currentMode === "mix" && score === totalQuestions) { targetCount = treasureList.length; }
 
       if (targetCount > currentCount) {
         saveTreasureCount(targetCount);
         return true;
       }
-
       return false;
     }
 
     function makePool(mode) {
       if (mode === "mix") {
-        return lessonData.color.concat(lessonData.shape).concat(lessonData.animal);
+        return lessonData.color.concat(lessonData.shape).concat(lessonData.animal).concat(lessonData.count);
       }
-
       return lessonData[mode].slice();
     }
 
     function pickQuestion() {
       let candidates = activePool.slice();
-
       if (activePool.length > 3) {
         candidates = candidates.filter(function(item) {
           return !lastQuestionIds.includes(item.id + item.prompt);
         });
       }
-
-      if (candidates.length === 0) {
-        candidates = activePool.slice();
-      }
-
+      if (candidates.length === 0) { candidates = activePool.slice(); }
       const picked = candidates[Math.floor(Math.random() * candidates.length)];
       lastQuestionIds.push(picked.id + picked.prompt);
-
-      if (lastQuestionIds.length > 3) {
-        lastQuestionIds.shift();
-      }
-
+      if (lastQuestionIds.length > 3) { lastQuestionIds.shift(); }
       return picked;
     }
 
@@ -1072,11 +1084,7 @@
       let wrongPool = activePool.filter(function(item) {
         return item.id !== answerItem.id || item.label !== answerItem.label;
       });
-
-      if (wrongPool.length === 0) {
-        wrongPool = activePool.slice();
-      }
-
+      if (wrongPool.length === 0) { wrongPool = activePool.slice(); }
       return shuffleArray(wrongPool)[0];
     }
 
@@ -1091,80 +1099,63 @@
 
     function setMessage(text, type) {
       message.textContent = text;
-      message.classList.remove("good-text");
-      message.classList.remove("bad-text");
-      message.classList.remove("bonus-text");
-
-      if (type === "good") {
-        message.classList.add("good-text");
-      }
-
-      if (type === "bad") {
-        message.classList.add("bad-text");
-      }
-
-      if (type === "bonus") {
-        message.classList.add("bonus-text");
-      }
+      message.classList.remove("good-text", "bad-text", "bonus-text");
+      if (type === "good") { message.classList.add("good-text"); }
+      if (type === "bad") { message.classList.add("bad-text"); }
+      if (type === "bonus") { message.classList.add("bonus-text"); }
     }
 
     function createDressElement(item) {
       const wrap = document.createElement("span");
       const bow = document.createElement("span");
-
       wrap.className = "dress-icon";
       wrap.style.setProperty("--dress-color", item.color);
-
       bow.className = "dress-bow";
       wrap.appendChild(bow);
-
       return wrap;
     }
 
-    function applyItemStyle(element, item, isTarget) {
-      element.innerHTML = "";
+    function createCountElement(item) {
+      const wrap = document.createElement("span");
+      wrap.className = "number-stack";
+      for (let i = 0; i < item.count; i += 1) {
+        const tiny = document.createElement("span");
+        tiny.className = "tiny";
+        tiny.textContent = item.icon;
+        wrap.appendChild(tiny);
+      }
+      return wrap;
+    }
 
-      if (item.emoji === "dress") {
+    function renderItem(element, item, isTarget) {
+      element.innerHTML = "";
+      element.style.color = item.color;
+      element.style.textShadow = "0 5px 0 rgba(82,41,99,0.08)";
+      if (item.type === "dress") {
         element.appendChild(createDressElement(item));
+      } else if (item.type === "count") {
+        element.appendChild(createCountElement(item));
       } else {
         element.textContent = item.emoji;
       }
-
-      element.style.color = item.color;
-      element.style.textShadow = "0 5px 0 rgba(87,44,100,0.08)";
-
       if (isTarget) {
-        element.style.borderColor = item.color === "#ffffff" ? "#ffd761" : item.color;
+        element.style.borderColor = item.color === "#ffffff" ? "#ffd86b" : item.color;
       }
     }
 
     function createChoiceButton(item) {
       const button = document.createElement("button");
-      const emojiSpan = document.createElement("div");
+      const icon = document.createElement("div");
       const label = document.createElement("div");
-
       button.type = "button";
       button.className = "choice-btn";
       button.setAttribute("aria-label", item.label);
-
-      if (item.emoji === "dress") {
-        emojiSpan.appendChild(createDressElement(item));
-      } else {
-        emojiSpan.textContent = item.emoji;
-      }
-
-      emojiSpan.style.color = item.color;
-
+      renderItem(icon, item, false);
       label.className = "choice-label";
       label.textContent = item.label;
-
-      button.appendChild(emojiSpan);
+      button.appendChild(icon);
       button.appendChild(label);
-
-      button.addEventListener("click", function() {
-        checkAnswer(item, button);
-      });
-
+      button.addEventListener("click", function() { checkAnswer(item, button); });
       return button;
     }
 
@@ -1174,26 +1165,18 @@
       updateStatus();
 
       currentAnswer = pickQuestion();
-
-      questionLabel.textContent = childName + "、どっちかな？";
-      applyItemStyle(targetDisplay, currentAnswer, true);
+      questionLabel.textContent = "どっちかな？";
+      renderItem(targetDisplay, currentAnswer, true);
       targetDisplay.classList.remove("pulse");
       void targetDisplay.offsetWidth;
       targetDisplay.classList.add("pulse");
 
-      if (hintToggle.checked) {
-        hintText.textContent = currentAnswer.hint;
-      } else {
-        hintText.textContent = "";
-      }
-
-      setMessage(childName + "、タッチしてね", "");
+      hintText.textContent = hintToggle.checked ? currentAnswer.hint : "";
+      setMessage("タッチしてね", "");
       choices.innerHTML = "";
 
       const wrong = makeWrongChoice(currentAnswer);
-      const choiceItems = shuffleArray([currentAnswer, wrong]);
-
-      choiceItems.forEach(function(item) {
+      shuffleArray([currentAnswer, wrong]).forEach(function(item) {
         choices.appendChild(createChoiceButton(item));
       });
 
@@ -1201,8 +1184,7 @@
     }
 
     function createConfetti(count) {
-      const palette = ["#ff7ac8", "#ffd761", "#8a5cff", "#4aa3ff", "#35c979", "#ffffff"];
-
+      const palette = ["#ff7ac8", "#ffd86b", "#8757ff", "#43a4ff", "#30c978", "#ffffff"];
       for (let i = 0; i < count; i += 1) {
         const piece = document.createElement("div");
         piece.className = "confetti";
@@ -1211,18 +1193,12 @@
         piece.style.animationDelay = String(Math.random() * 0.35) + "s";
         piece.style.transform = "rotate(" + String(Math.random() * 180) + "deg)";
         document.body.appendChild(piece);
-
-        window.setTimeout(function() {
-          piece.remove();
-        }, 1700);
+        window.setTimeout(function() { piece.remove(); }, 1700);
       }
     }
 
     function checkAnswer(item, button) {
-      if (locked) {
-        return;
-      }
-
+      if (locked) { return; }
       ensureAudio();
 
       if (item.id === currentAnswer.id && item.label === currentAnswer.label) {
@@ -1235,31 +1211,24 @@
 
         let text = goodMessages[Math.floor(Math.random() * goodMessages.length)];
         let type = "good";
-
         if (streak >= 3) {
-          text = childName + "、" + String(streak) + "かい れんぞく！";
+          text = String(streak) + "かい れんぞく！";
           type = "bonus";
           playBonusSound();
           createConfetti(14);
         }
 
         setMessage(text, type);
-        speak("みくりちゃん、せいかい。すごいね。");
+        speak("せいかい。すごいね。");
 
-        Array.from(choices.children).forEach(function(child) {
-          child.disabled = true;
-        });
-
+        Array.from(choices.children).forEach(function(child) { child.disabled = true; });
         updateStatus();
 
         if (autoNextToggle.checked) {
-          window.setTimeout(function() {
-            goNext();
-          }, 950);
+          window.setTimeout(function() { goNext(); }, 950);
         } else {
           nextBtn.style.display = "block";
         }
-
         return;
       }
 
@@ -1274,12 +1243,10 @@
 
     function goNext() {
       questionIndex += 1;
-
       if (questionIndex >= totalQuestions) {
         finishGame();
         return;
       }
-
       renderQuestion();
     }
 
@@ -1294,24 +1261,24 @@
 
       if (score === totalQuestions) {
         resultFace.textContent = "👑";
-        resultTitle.textContent = "みくりちゃん、ぜんぶせいかい！";
+        resultTitle.textContent = "ぜんぶせいかい！";
         resultStars.textContent = "⭐⭐⭐⭐⭐";
         resultMessage.textContent = unlocked ? "新しいたからものをゲットしたよ！" : "プリンセスパーティー大成功！";
-        createConfetti(46);
-        speak("みくりちゃん、ぜんぶせいかい。すごいね。");
+        createConfetti(48);
+        speak("ぜんぶせいかい。すごいね。");
       } else if (score >= 3) {
         resultFace.textContent = "💖";
-        resultTitle.textContent = "みくりちゃん、すごい！";
+        resultTitle.textContent = "すごい！";
         resultStars.textContent = "⭐⭐⭐⭐";
         resultMessage.textContent = unlocked ? "新しいたからものをゲット！" : "きらきらをたくさん集めたよ！";
         createConfetti(24);
-        speak("みくりちゃん、すごいね。");
+        speak("すごいね。");
       } else if (score >= 1) {
         resultFace.textContent = "🌸";
-        resultTitle.textContent = "みくりちゃん、がんばったね！";
+        resultTitle.textContent = "がんばったね！";
         resultStars.textContent = "⭐⭐⭐";
         resultMessage.textContent = unlocked ? "たからものをひとつゲット！" : "もういっかいあそぼうね！";
-        speak("みくりちゃん、がんばったね。");
+        speak("がんばったね。");
       } else {
         resultFace.textContent = "👸";
         resultTitle.textContent = "れんしゅうできたね！";
@@ -1351,6 +1318,12 @@
       parentPanel.classList.remove("active");
     });
 
+    resetBtn.addEventListener("click", function() {
+      saveTreasureCount(0);
+      renderTreasures();
+      showToast("たからものをリセットしました");
+    });
+
     Array.from(document.querySelectorAll(".mode-btn")).forEach(function(button) {
       button.addEventListener("click", function() {
         const mode = button.getAttribute("data-mode");
@@ -1358,22 +1331,15 @@
       });
     });
 
-    nextBtn.addEventListener("click", function() {
-      goNext();
-    });
+    nextBtn.addEventListener("click", function() { goNext(); });
 
     backMenuBtn.addEventListener("click", function() {
-      if ("speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
-
+      if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); }
       stopMusic();
       showScreen("menu");
     });
 
-    retryBtn.addEventListener("click", function() {
-      startGame(currentMode);
-    });
+    retryBtn.addEventListener("click", function() { startGame(currentMode); });
 
     homeBtn.addEventListener("click", function() {
       stopMusic();
@@ -1382,21 +1348,14 @@
 
     musicToggle.addEventListener("change", function() {
       if (gameScreen.classList.contains("active")) {
-        if (musicToggle.checked) {
-          startMusic();
-        } else {
-          stopMusic();
-        }
+        if (musicToggle.checked) { startMusic(); } else { stopMusic(); }
       }
     });
 
     soundToggle.addEventListener("change", function() {
       if (!soundToggle.checked) {
         stopMusic();
-
-        if ("speechSynthesis" in window) {
-          window.speechSynthesis.cancel();
-        }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); }
       } else if (gameScreen.classList.contains("active")) {
         startMusic();
       }
@@ -1405,10 +1364,7 @@
     document.addEventListener("visibilitychange", function() {
       if (document.hidden) {
         stopMusic();
-
-        if ("speechSynthesis" in window) {
-          window.speechSynthesis.cancel();
-        }
+        if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); }
       } else if (gameScreen.classList.contains("active")) {
         startMusic();
       }
@@ -1418,7 +1374,9 @@
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function() {
-        navigator.serviceWorker.register("./sw.js").catch(function() {
+        navigator.serviceWorker.register("./sw.js?v=" + APP_VERSION).then(function(registration) {
+          registration.update();
+        }).catch(function() {
           // オフライン対応に失敗しても、ゲーム本体はそのまま動きます。
         });
       });

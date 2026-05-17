@@ -1,11 +1,15 @@
-const CACHE_NAME = "mikuri-princess-dx2-v2";
+const CACHE_NAME = "mikuri-princess-dx31-20260517";
 const ASSETS = [
-  "./",
+  "./?v=dx31",
   "./index.html",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon-180.png",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", function(event) {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(ASSETS);
@@ -24,14 +28,36 @@ self.addEventListener("activate", function(event) {
           return Promise.resolve();
         })
       );
+    }).then(function() {
+      return self.clients.claim();
     })
   );
 });
 
 self.addEventListener("fetch", function(event) {
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request).then(function(response) {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(function(cache) {
+          cache.put("./index.html", clone);
+        });
+        return response;
+      }).catch(function() {
+        return caches.match("./index.html");
+      })
+    );
+    return;
+  }
+
   event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request);
+    caches.match(event.request).then(function(response) {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request).then(function(networkResponse) {
+        return networkResponse;
+      });
     })
   );
 });
